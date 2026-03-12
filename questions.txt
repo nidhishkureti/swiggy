@@ -1,0 +1,58 @@
+• Why did you use Express?
+Express makes it easy to create REST APIs in Node.js.
+
+• Why did you store seats in memory?
+For simplicity. In real systems we would store them in a database.
+
+• What HTTP method did you use for booking and why?
+POST because booking creates a new resource.
+
+• Why GET for seat availability?
+GET is used to retrieve information.
+
+• What happens if user sends invalid seat ID?
+The API checks if the seat exists and returns "Seat not found".
+
+• What happens if the same seat is booked twice?
+The system checks availability and returns "Seat already booked".
+
+• What happens if payment fails?
+Seat should remain available.
+
+• What if payment details are missing?
+The API returns a validation error.
+
+Database Design Questions
+
+Interviewers may ask:
+
+How would you design database tables?
+
+Example tables:
+
+Seats Table
+seat_id
+status
+
+Example
+
+A10 | available
+
+Bookings Table
+booking_id
+user
+seat_id
+status
+payment_id
+timestamp
+
+
+• What if payment succeeds but booking fails?
+
+Possible solution:
+
+Refund payment
+
+or
+
+Use payment confirmation + booking transaction
